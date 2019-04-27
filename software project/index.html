@@ -1,21 +1,85 @@
 <!DOCTYPE html>
     <head>
         <title>Pixel Racer</title>
+        <meta charset="utf-8">
         <link href="pixelRacer.css" rel="stylesheet">
-        <style></style>
+       
+        <script src="pixelRacer.js"></script>
+        <script src="jquery.min.js"></script>       
     </head>
     <body>
-        <canvas id="canvas" width="500" height="500">
+        <div id="how-to">
+            <p><!--insert instructions here--></p>
+        </div>
+        <div id="score-div">
+            Score <span id="score">0</span>
+        </div>
+        <div id="road-container">
 
+            <!--lines on the road-->
+            <div id="line-1" class="line"></div>
+            <div id="line-2" class="line"></div>
+            <div id="line-3" class="line"></div>
+            <!--player car-->
+            <div id="car" class="car">
+                <div class="front-glass"></div>
+                <div class="back-glass"></div>
+                <div class="front-light-1"></div>
+                <div class="front-light-2"></div>
+                <div class="front-tire-1"></div>
+                <div class="front-tire-2"></div>
+                <div class="back-tire-1"></div>
+                <div class="back-tire-2"></div>
+            </div>
+            <!--NPC cars-->
+            <div id="car-1" class="car">
+                <div class="front-glass"></div>
+                <div class="back-glass"></div>
+                <div class="front-light-1"></div>
+                <div class="front-light-2"></div>
+                <div class="front-light-1"></div>
+                <div class="front-light-2"></div>
+                <div class="front-tire-1"></div>
+                <div class="front-tire-2"></div>
+                <div class="back-tire-1"></div>
+                <div class="back-tire-2"></div>
+            </div>
+                <div id="car-2" class="car">
+                    <div class="front-glass"></div>
+                    <div class="back-glass"></div>
+                    <div class="front-light-1"></div>
+                    <div class="front-light-2"></div>
+                    <div class="front-light-1"></div>
+                    <div class="front-light-2"></div>
+                    <div class="front-tire-1"></div>
+                    <div class="front-tire-2"></div>
+                    <div class="back-tire-1"></div>
+                    <div class="back-tire-2"></div>
+                </div>
+                <div id="car-3" class="car">
+                    <div class="front-glass"></div>
+                    <div class="back-glass"></div>
+                    <div class="front-light-1"></div>
+                    <div class="front-light-2"></div>
+                    <div class="front-light-1"></div>
+                    <div class="front-light-2"></div>
+                    <div class="front-tire-1"></div>
+                    <div class="front-tire-2"></div>
+                    <div class="back-tire-1"></div>
+                    <div class="back-tire-2"></div>
+                </div>
+                <!--hazard-->
+                <div id="hazard" class="hazard"></div>
+                <!--Reset-->
+                <div class="reset-div">
+                    <button id="reset">
+                        Reset<br>
+                        <small class="small_text">(press Enter)</small>
+                    </button>
+                </div>
+        </div>
 
-
-
-        </canvas>
-        <script src="menu.js"></script>
-        <script src="car.js"></script>
-        <script src="items.js"></script>
-        <script src="player.js"></script>
-        <script src="hazard.js"></script>
+       
     </body>
     
 
