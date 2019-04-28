@@ -1,8 +1,6 @@
 $(function(){
 
     var anim_id;
-    var anim_id2;
-
 
 
     //saves objects to vars
@@ -18,7 +16,6 @@ $(function(){
     var reset_div = $('#reset-div');
     var reset = $('#reset');
     var score = $('#score');
-    var highscore = $('#Highscore');
     var hazard_1 = $('#hazard-1');
     var hazard_2 = $('#hazard-2');
     var hazard = $('#hazard');
@@ -35,8 +32,6 @@ $(function(){
 
     var game_over = false;
     var score_counter = 1;
-    var count = 0;
-    var highscore_counter;
     var speed =  2;
     var line_speed = 5;
     var move_right = false;
@@ -45,8 +40,8 @@ $(function(){
     var move_down = false;
 
 
-    /////////// GAME CODE /////////////
 
+    //////////////////////////////////////GAME CODE STARTS HERE////////////////////////////////////////////
 
     // key presses 
     $(document).on('keydown', function(e) {
@@ -143,19 +138,8 @@ $(function(){
         line_down(line_2);
         line_down(line_3);
 
-        anim_id2 = requestAnimationFrame(constant);
         anim_id = requestAnimationFrame(repeat);
         
-    }
-
-    function constant(){
-        
-        count++;
-
-        if (count > highscore_counter){
-            highscore.text(parseInt(highscore_counter.text()));
-        }
-
     }
 
     function car_down(car) {
@@ -202,10 +186,9 @@ $(function(){
         reset.focus();
     }
 
-    /* ------------------------------GAME CODE ENDS HERE------------------------------------------- */
+     // colition detection
 
-
-    function collision($div1, $div2) {
+     function collision($div1, $div2) {
         var x1 = $div1.offset().left;
         var y1 = $div1.offset().top;
         var h1 = $div1.outerHeight(true);
@@ -223,6 +206,10 @@ $(function(){
         return true;
     }
 
+
+    //////////////////////////////////////GAME CODE ENDS HERE////////////////////////////////////////////
+
+   
 
 
 });
