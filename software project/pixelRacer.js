@@ -1,6 +1,9 @@
 $(function(){
 
     var anim_id;
+    var anim_id2;
+
+
 
     //saves objects to vars
 
@@ -15,22 +18,25 @@ $(function(){
     var reset_div = $('#reset-div');
     var reset = $('#reset');
     var score = $('#score');
+    var highscore = $('#Highscore');
     var hazard_1 = $('#hazard-1');
     var hazard_2 = $('#hazard-2');
     var hazard = $('#hazard');
 
     //initial setup
 
-    var container_left = parseInt(container.css('left'));
     var container_width = parseInt(container.width());
     var container_height = parseInt(container.height());
     var car_width = parseInt(car.width());
     var car_height = parseInt(car.height());
     var hazard_width = parseInt(hazard.width());
+
     //additional declarations
 
     var game_over = false;
     var score_counter = 1;
+    var count = 0;
+    var highscore_counter;
     var speed =  2;
     var line_speed = 5;
     var move_right = false;
@@ -41,51 +47,8 @@ $(function(){
 
     /////////// GAME CODE /////////////
 
-    //move cars
 
-
-    //keydown function
-    $(document).on('keydown', function(e){
-        if (game_over === false){
-            var key = e.keyCode;
-            if (key === 37 && move_left === false){
-                move_left = requestAnimationFrame(left);
-            }
-            else if (key === 39 && move_right === false){
-                move_right = requestAnimationFrame(right);
-            }
-            else if (key === 38 && move_up === false){
-                move_up = requestAnimationFrame(up);
-            }
-            else if (key === 40 && move_down === false){
-                move_down = requestAnimationFrame(down);
-            }
-        }
-    });
-
-    var container_left = parseInt(container.css('left'));
-    var container_width = parseInt(container.width());
-    var container_height = parseInt(container.height());
-    var car_width = parseInt(car.width());
-    var car_height = parseInt(car.height());
-    var hazard_width = parseInt(hazard.width());
-
-    //additional declarations
-    var game_over = false;
-
-    var score_counter = 1;
-
-    var speed = 2;
-    var line_speed = 5;
-
-    var move_right = false;
-    var move_left = false;
-    var move_up = false;
-    var move_down = false;
-
-   ////// GAME CODE STARTS HERE ///////
-
-    /* Move the car */
+    // key presses 
     $(document).on('keydown', function(e) {
         if (game_over === false) {
             var key = e.keyCode;
@@ -120,6 +83,7 @@ $(function(){
         }
     });
 
+    // move the car 
     function left() {
         if (game_over === false && parseInt(car.css('left')) > 0) {
             car.css('left', parseInt(car.css('left')) - 5);
@@ -165,7 +129,9 @@ $(function(){
         if (score_counter % 500 == 0) {
             speed++;
             line_speed++;
+            
         }
+    
 
         car_down(car_1);
         car_down(car_2);
@@ -177,7 +143,19 @@ $(function(){
         line_down(line_2);
         line_down(line_3);
 
+        anim_id2 = requestAnimationFrame(constant);
         anim_id = requestAnimationFrame(repeat);
+        
+    }
+
+    function constant(){
+        
+        count++;
+
+        if (count > highscore_counter){
+            highscore.text(parseInt(highscore_counter.text()));
+        }
+
     }
 
     function car_down(car) {
@@ -213,6 +191,7 @@ $(function(){
     });
 
     function stop_the_game() {
+        hscore = score_counter;
         game_over = true;
         cancelAnimationFrame(anim_id);
         cancelAnimationFrame(move_right);
