@@ -15,8 +15,9 @@ $(function(){
     var reset_div = $('#reset-div');
     var reset = $('#reset');
     var score = $('#score');
+    var hazard_1 = $('#hazard-1');
+    var hazard_2 = $('#hazard-2');
     var hazard = $('#hazard');
-
 
     //initial setup
 
@@ -25,7 +26,7 @@ $(function(){
     var container_height = parseInt(container.height());
     var car_width = parseInt(car.width());
     var car_height = parseInt(car.height());
-
+    var hazard_width = parseInt(hazard.width());
     //additional declarations
 
     var game_over = false;
@@ -67,8 +68,9 @@ $(function(){
     var container_height = parseInt(container.height());
     var car_width = parseInt(car.width());
     var car_height = parseInt(car.height());
+    var hazard_width = parseInt(hazard.width());
 
-    //some other declarations
+    //additional declarations
     var game_over = false;
 
     var score_counter = 1;
@@ -81,9 +83,9 @@ $(function(){
     var move_up = false;
     var move_down = false;
 
-    /* ------------------------------GAME CODE STARTS HERE------------------------------------------- */
+   ////// GAME CODE STARTS HERE ///////
 
-    /* Move the cars */
+    /* Move the car */
     $(document).on('keydown', function(e) {
         if (game_over === false) {
             var key = e.keyCode;
@@ -146,11 +148,11 @@ $(function(){
         }
     }
 
-    /* Move the cars and lines */
+    // animate
     anim_id = requestAnimationFrame(repeat);
 
     function repeat() {
-        if (collision(car, car_1) || collision(car, car_2) || collision(car, car_3)) {
+        if (collision(car, car_1) || collision(car, car_2) || collision(car, car_3) || collision(car, hazard_1) || collision(car, hazard_2)) {
             stop_the_game();
             return;
         }
@@ -168,6 +170,8 @@ $(function(){
         car_down(car_1);
         car_down(car_2);
         car_down(car_3);
+        hazard_down(hazard_1);
+        hazard_down(hazard_2);
 
         line_down(line_1);
         line_down(line_2);
@@ -184,6 +188,16 @@ $(function(){
             car.css('left', car_left);
         }
         car.css('top', car_current_top + speed);
+    }
+
+    function hazard_down(hazard) {
+        var hazard_current_top = parseInt(hazard.css('top'));
+        if (hazard_current_top > container_height) {
+            hazard_current_top = -200;
+            var hazard_left = parseInt(Math.random() * (container_width - hazard_width));
+            hazard.css('left', hazard_left);
+        }
+        hazard.css('top', hazard_current_top + speed);
     }
 
     function line_down(line) {
