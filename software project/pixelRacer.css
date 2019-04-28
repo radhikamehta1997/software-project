@@ -4,7 +4,7 @@ body {
     height:100%;
     width:100%;
     margin:0;
-    background-color:#45d678;
+    background-color:#d4a773;
     font-family:sans-serif;
 
 }
@@ -15,7 +15,7 @@ body {
     width:25%;
     left:35%;
     margin-top:20px;
-    background-color:#292929;
+    background-color:#6e6e6e;
     overflow:hidden;
 
 }
@@ -51,7 +51,7 @@ body {
 #car{
     bottom:8%;
     left:68%;
-    background-color:#ffff5a;
+    background-color:#fdcb6e;
 }
 
 .front-glass{
@@ -61,7 +61,7 @@ body {
     margin-left:20%;
     top:15%;
     border-radius:0px 0px 5px 5px;
-    background-color: #484848;
+    background-color: #797979;
 }
 
 .back-glass{
@@ -71,7 +71,7 @@ body {
     margin-left:20%;
     top:15%;
     border-radius:5px 5px 0px 0px;
-    background-color: #484848;
+    background-color: #797979;
 }
 
 .front-light-1{
@@ -137,19 +137,19 @@ body {
 #car-1{
     top:-100px;
     left:60%;
-    background-color:red;
+    background-color:#a29bfe;
 }
 
 #car-2{
     top:-200px;
     left:40%;
-    background-color:red;
+    background-color:#a29bfe;
 }
 
 #car-3{
     top:-350px;
     left:50%;
-    background-color:red;
+    background-color:#a29bfe;
 }
 
 #reset-div{
@@ -164,10 +164,24 @@ body {
     display:none;
 }
 
-#hazard{
+.hazard{
+    
+    position:absolute;
+    height:10px;
+    width: 80px;
+    border-radius:5px;
+    box-shadow:0px 1px 8px 0px black;
+}
+
+#hazard-1{
     top:150px;
-    left:50%;
-    background-color:blue;
+    left:20%;
+    background-color:#ff7675;
+}
+#hazard-2{
+    top:-100px;
+    left:30%;
+    background-color:#ff7675;
 }
 
 #reset{
@@ -191,5 +205,5 @@ body {
 }
 #how-to{
     text-align:center;
-    display:none;
+    
 }
