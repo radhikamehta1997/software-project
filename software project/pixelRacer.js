@@ -4,7 +4,7 @@ $(function(){
 
     //saves objects to vars
 
-    var container = $('#container');
+    var container = $('#road-container');
     var car = $('#car');
     var car_1 = $('#car-1');
     var car_2 = $('#car-2');
@@ -194,7 +194,7 @@ $(function(){
         line.css('top', line_current_top + line_speed);
     }
 
-    restart_btn.click(function() {
+    reset.click(function() {
         location.reload();
     });
 
@@ -205,8 +205,8 @@ $(function(){
         cancelAnimationFrame(move_left);
         cancelAnimationFrame(move_up);
         cancelAnimationFrame(move_down);
-        restart_div.slideDown();
-        restart_btn.focus();
+        reset_div.slideDown();
+        reset.focus();
     }
 
     /* ------------------------------GAME CODE ENDS HERE------------------------------------------- */
